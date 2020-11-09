@@ -56,7 +56,7 @@ export async function checkUpdate({ repository, token }: Option = {}) {
         })
         .then(result => {
             if (result.response === 0) {
-                electron_1.default.shell.openExternal(latest.html_url);
+                electron.default.shell.openExternal(latest.html_url);
             }
         })
     }
