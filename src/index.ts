@@ -53,13 +53,12 @@ export async function checkUpdate({ repository, token }: Option = {}) {
         {
           message: `New release available: ${latestVersion}\n\n${latest.body}`,
           buttons: ['Download', 'Later'],
-        },
-        res => {
-          if (res === 0) {
-            electron.shell.openExternal(latest.html_url)
+        })
+      .then(result => {
+          if (result.response === 0) {
+            electron.default.shell.openExternal(latest.html_url);
           }
-        },
-      )
+        })
     }
   } catch (err) {
     console.error(err)
